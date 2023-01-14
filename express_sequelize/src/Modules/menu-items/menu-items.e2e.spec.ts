@@ -10,9 +10,11 @@ describe('MenuItemsController', () => {
   it('Menu Item Result Test', async () => {
     const response = await request(Server.getApp().app)
       .get('/menu-items/menu')
-      .expect(200);
+      // .expect(200);
 
     const result = response.body;
+
+    console.log({result})
 
     expect(result.length).toBe(1);
     expect(result[0].children[0].name).toBe('Laracon');

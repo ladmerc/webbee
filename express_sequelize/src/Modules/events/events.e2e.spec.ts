@@ -7,7 +7,7 @@ describe('events', () => {
     return Server.init();
   });
 
-  it.skip(`GET /events/warmupevents`, async () => {
+  it(`GET /events/warmupevents`, async () => {
     const response = await request(Server.getApp().app)
       .get('/events/warmupevents')
       .expect(200);
@@ -23,7 +23,7 @@ describe('events', () => {
     expect(result[2].name).toBe('React convention ' + date2);
   });
 
-  it.skip('GET /events/events', async () => {
+  it('GET /events/events', async () => {
     const date1 = format(subYears(new Date(), 1), 'yyyy');
     const date2 = format(addYears(new Date(), 1), 'yyyy');
 

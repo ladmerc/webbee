@@ -1,3 +1,5 @@
+import MenuItem from "./entities/menu-item.entity";
+
 export class MenuItemsService {
 
   /* TODO: complete getMenuItems so that it returns a nested menu structure
@@ -76,6 +78,28 @@ export class MenuItemsService {
   */
 
   async getMenuItems() {
-    throw new Error('TODO in task 3');
+    const menuItems = await MenuItem.findAll();
+
+    // can't proceed because I keep getting segmentation errors - restart not helping
+
+
+    // const output = []
+
+    // for (const item of menuItems) {
+    //     const parent = menuItems.find(item => item.dataValues.id === parentId);
+    //     console.log({parent})
+    //     if (!parent) {
+    //         output.push(item)
+    //     } else {
+    //         if (!parent.children) {
+    //             parent.children = [item]
+    //         } else {
+    //             parent.children.push(item)
+    //         }
+    //     }
+
+    // }
+
+    // return output
   }
 }
