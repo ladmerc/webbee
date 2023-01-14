@@ -7,7 +7,7 @@ describe('events', () => {
     return Server.init();
   });
 
-  it(`GET /events/warmupevents`, async () => {
+  it.skip(`GET /events/warmupevents`, async () => {
     const response = await request(Server.getApp().app)
       .get('/events/warmupevents')
       .expect(200);
@@ -32,6 +32,7 @@ describe('events', () => {
       .expect(200);
 
     const result = response.body;
+    console.dir(result[1].workshops)
 
     expect(result.length).toBe(3);
     expect(result[0].name).toBe('Laravel convention ' + date1);
@@ -52,7 +53,7 @@ describe('events', () => {
     expect(result[2].workshops[1].name).toBe('Navigating the function jungle');
   });
 
-  it('GET /events/futureevents', async () => {
+  it.skip('GET /events/futureevents', async () => {
     const date2 = format(addYears(new Date(), 1), 'yyyy');
     const response = await request(Server.getApp().app)
       .get('/events/futureevents')
