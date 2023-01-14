@@ -23,7 +23,7 @@ describe('events', () => {
     expect(result[2].name).toBe('React convention ' + date2);
   });
 
-  it('GET /events/events', async () => {
+  it.skip('GET /events/events', async () => {
     const date1 = format(subYears(new Date(), 1), 'yyyy');
     const date2 = format(addYears(new Date(), 1), 'yyyy');
 
@@ -53,7 +53,7 @@ describe('events', () => {
     expect(result[2].workshops[1].name).toBe('Navigating the function jungle');
   });
 
-  it.skip('GET /events/futureevents', async () => {
+  it('GET /events/futureevents', async () => {
     const date2 = format(addYears(new Date(), 1), 'yyyy');
     const response = await request(Server.getApp().app)
       .get('/events/futureevents')

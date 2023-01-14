@@ -1,3 +1,4 @@
+import { Op } from 'sequelize';
 import Event from './entities/event.entity';
 import Workshop from './entities/workshop.entity';
 
@@ -165,6 +166,22 @@ export class EventsService {
     ```
      */
   async getFutureEventWithWorkshops() {
-    throw new Error('TODO task 2');
+    return await Event.findAll({
+      include: [
+        {
+          model: Workshop,
+          as: 'workshops',
+          where: {
+            start: {
+              [Op.gt]: new Date()
+            }
+          },
+          order: [['id', 'ASC']],
+        }
+      ],
+      order: [
+        [{ model: Workshop, as: 'workshops' }, 'id', 'ASC']
+      ]
+    });
   }
 }
